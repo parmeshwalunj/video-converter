@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+</head>
+<style>
+    .center{
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+</style>
+<body>
+    <div>
+        {% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}  
+    </div>
+    <div class="center">
+        <h1>Video Converter & Compressor</h1>
+    <form id="upload-form" action = "{{url_for('upload')}}" method = "POST" 
+         enctype = "multipart/form-data">
+         <h3>Enter the number of Action to be performed:</h3>
+         <ol>
+             <li>Convert to mp4</li>
+             <li>Convert to mov</li>
+             <li>Convert to wmv</li>
+             <li>Convert to avi</li>
+             <li>Convert to webm</li>
+             <li>Convert to mkv</li>
+             <li>Convert to flv</li>
+         </ol>
+         <input type = "file" name = "file" />
+         <input type="number" name="convert_num">
+         <input type = "submit" value="Convert">
+    </form> 
+    </div>
+</body>
+</html>
